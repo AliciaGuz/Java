@@ -13,36 +13,42 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class dbConexion {
-    private final String url = "jdbc : mysql: //localhost:3306/";
+    private final String URL = "jdbc : mysql: //localhost:3306/";
     private final String DB_DRIVER = "com.mysql.jdbc.Driver";
     private final String DB = "puntoVenta";
     private final String USER = "root";
     private final String PASSWORD = "3stefany";
-}
-
-public Connection conectar(){
-    try{
-        Class.forName(DB_Driver);
-        this.connnection = DriverManager.getConnection(
-                URL + DB,USER, PASSWORD);
-    } catch (ClassNotFoundException | SQLException e){
-      JOptionPane.ShowMessageDialog(null, e.getMessage());
-      System.exit(0);
+    
+    public Connection conectar()
+    {
+        try
+        {
+            Class .forName(DB_DRIVER);
+            this.connection=DriverManager.getConnection(
+                    URL+DB,USER,PASSWORD);
+        }catch( ClassNotFoundException | SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.exit(0);
+        }
+        return this.connection;
+       
     }
-    return this.connection;
-
-public void desconectar(){
-    try {
-        this.connection.close();
-    }cath (SQLException e){
-        JOption.Pane.ShowMessageDialog(null, e.getMessage());
+    
+    public void desconnectar(){
+        try{
+            this.conecction.close();
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 }
 
 
+
+
     
     
     
-}
+
 
 
