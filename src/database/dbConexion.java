@@ -4,6 +4,9 @@
  */
 package database;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,8 +26,20 @@ public Connection conectar(){
         this.connnection = DriverManager.getConnection(
                 URL + DB,USER, PASSWORD);
     } catch (ClassNotFoundException | SQLException e){
-      
+      JOptionPane.ShowMessageDialog(null, e.getMessage());
+      System.exit(0);
     }
+    return this.connection;
+
+public void desconectar(){
+    try {
+        this.connection.close();
+    }cath (SQLException e){
+        JOption.Pane.ShowMessageDialog(null, e.getMessage());
+    }
+}
+
+
     
     
     
